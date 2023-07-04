@@ -13,6 +13,6 @@ public class TestDtoResponse {
     }
 
     private static String createMessageWithUserName(String username){
-        return "welcome "+username+" !";
+        return "welcome "+username+"!";
     }
 }
