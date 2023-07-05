@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public interface OAuthController {
-  @PostMapping("/api/oauth-redirect")
+  @PostMapping("/oauth-redirect")
   public MemberDto oauthLogin(@RequestBody LoginRequestDto loginRequestDto);
-  @GetMapping("/api/oauth-test")
+  @GetMapping("/oauth-test")
   public Member oauth(HttpServletRequest request);
 }
