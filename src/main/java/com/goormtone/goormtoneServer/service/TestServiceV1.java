@@ -5,6 +5,7 @@ import com.goormtone.goormtoneServer.domain.dto.TestDtoResponse;
 import com.goormtone.goormtoneServer.domain.entity.TestEntity;
 import com.goormtone.goormtoneServer.repository.TestRepository;
 import lombok.RequiredArgsConstructor;
+import org.locationtech.jts.geom.Point;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
