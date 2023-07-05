@@ -1,8 +1,8 @@
 package com.goormtone.goormtoneServer.service;
 
-import com.goormtone.goormtoneServer.domain.Member.LoginRequestDto;
-import com.goormtone.goormtoneServer.domain.Member.Member;
-import com.goormtone.goormtoneServer.domain.Member.MemberDto;
+import com.goormtone.goormtoneServer.domain.member.LoginRequestDto;
+import com.goormtone.goormtoneServer.domain.member.Member;
+import com.goormtone.goormtoneServer.domain.member.MemberDto;
 import com.goormtone.goormtoneServer.repository.MemberRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;

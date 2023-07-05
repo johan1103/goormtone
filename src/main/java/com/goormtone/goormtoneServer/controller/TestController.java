@@ -2,8 +2,7 @@ package com.goormtone.goormtoneServer.controller;
 
 import com.goormtone.goormtoneServer.domain.dto.TestDtoRequest;
 import com.goormtone.goormtoneServer.domain.dto.TestDtoResponse;
-import com.goormtone.goormtoneServer.domain.entity.TestEntity;
-import org.springframework.data.domain.Slice;
+import com.goormtone.goormtoneServer.domain.test.entity.TestEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;

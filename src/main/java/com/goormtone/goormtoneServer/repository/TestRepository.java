@@ -1,7 +1,6 @@
 package com.goormtone.goormtoneServer.repository;
 
-import com.goormtone.goormtoneServer.domain.entity.TestEntity;
-import org.springframework.data.domain.Page;
+import com.goormtone.goormtoneServer.domain.test.entity.TestEntity;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.data.jpa.repository.JpaRepository;

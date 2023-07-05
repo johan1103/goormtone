@@ -1,11 +1,8 @@
-package com.goormtone.goormtoneServer.domain.Member;
+package com.goormtone.goormtoneServer.domain.member;
 
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.geolatte.geom.M;
 
 @Getter
 @AllArgsConstructor

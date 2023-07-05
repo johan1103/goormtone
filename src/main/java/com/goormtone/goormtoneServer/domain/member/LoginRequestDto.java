@@ -1,4 +1,4 @@
-package com.goormtone.goormtoneServer.domain.Member;
+package com.goormtone.goormtoneServer.domain.member;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

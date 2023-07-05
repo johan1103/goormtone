@@ -1,8 +1,8 @@
 package com.goormtone.goormtoneServer.controller;
 
-import com.goormtone.goormtoneServer.domain.Member.LoginRequestDto;
-import com.goormtone.goormtoneServer.domain.Member.Member;
-import com.goormtone.goormtoneServer.domain.Member.MemberDto;
+import com.goormtone.goormtoneServer.domain.member.LoginRequestDto;
+import com.goormtone.goormtoneServer.domain.member.Member;
+import com.goormtone.goormtoneServer.domain.member.MemberDto;
 import com.goormtone.goormtoneServer.repository.MemberRepository;
 import com.goormtone.goormtoneServer.resolver.TokenResolver;
 import com.goormtone.goormtoneServer.service.MemberService;

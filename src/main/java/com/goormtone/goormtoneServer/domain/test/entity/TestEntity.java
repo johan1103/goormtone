@@ -1,4 +1,4 @@
-package com.goormtone.goormtoneServer.domain.entity;
+package com.goormtone.goormtoneServer.domain.test.entity;
 
 import com.goormtone.goormtoneServer.domain.dto.TestDtoRequest;
 import jakarta.persistence.Entity;
