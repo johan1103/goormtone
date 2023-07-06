@@ -22,7 +22,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
             .allowedOriginPatterns("*")
             .allowedMethods("GET", "POST", "PUT", "PATCH", "OPTIONS")
             .allowedHeaders("headers")
-            .allowCredentials(true)
+            .allowedOrigins("https://nwadwong-in-jeju.vercel.app")
             .exposedHeaders("authorization");
   }
 
