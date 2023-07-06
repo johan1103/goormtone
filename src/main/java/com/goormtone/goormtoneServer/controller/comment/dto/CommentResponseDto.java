@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @AllArgsConstructor
@@ -16,7 +17,7 @@ import java.time.LocalDate;
 public class CommentResponseDto {
   public String cupStoreName;
   public String content;
-  public LocalDate createTime;
+  public LocalDateTime createTime;
   public String commentNickname;
   public static CommentResponseDto ofComment(Comment comment){
     return new CommentResponseDto(comment.getCupStore().getName(),comment.getContent(),

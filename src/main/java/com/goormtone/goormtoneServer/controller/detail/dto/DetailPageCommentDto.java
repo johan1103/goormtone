@@ -6,13 +6,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class DetailPageCommentDto {
   String commentNickname;
-  LocalDate createdAt;
+  LocalDateTime createdAt;
   String content;
 
   public static DetailPageCommentDto ofComment(Comment comment){

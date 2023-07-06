@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -33,7 +34,7 @@ public class CommentService {
     Optional<CupStore> cupStore = cupStoreRepository.findById(commentDto.getCupStoreId());
     Optional<Member> member = memberRepository.findById(commentDto.getMemberId());
     Comment comment = commentRepository.save(new Comment(null, commentDto.getContent(), member.get(),cupStore.get(),
-            LocalDate.now(),createCommentNickname(member.get())));
+            LocalDateTime.now(),createCommentNickname(member.get())));
     return CommentResponseDto.ofComment(comment);
   }
 
