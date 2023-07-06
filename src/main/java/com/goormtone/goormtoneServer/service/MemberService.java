@@ -22,11 +22,11 @@ public class MemberService{
 
   @PostConstruct
   public void initRandomValue(){
-    randomNickname.add("kimTaehyoung");
-    randomNickname.add("kangseoyoon");
-    randomNickname.add("shinheonwoo");
-    randomNickname.add("kimminkyu");
-    randomNickname.add("leejiyeong");
+    randomNickname.add("태형");
+    randomNickname.add("서윤");
+    randomNickname.add("현우");
+    randomNickname.add("민규");
+    randomNickname.add("지영");
   }
 
   public MemberDto login(LoginRequestDto loginRequestDto){
