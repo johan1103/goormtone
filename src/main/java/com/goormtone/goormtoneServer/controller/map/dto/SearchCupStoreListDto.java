@@ -12,4 +12,7 @@ import java.util.List;
 public class SearchCupStoreListDto {
   private List<SearchCupStore> cupStores;
   Integer size;
+  public static SearchCupStoreListDto ofSearchCupStore(List<SearchCupStore> stores){
+    return new SearchCupStoreListDto(stores, stores.size());
+  }
 }
