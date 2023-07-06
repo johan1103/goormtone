@@ -10,9 +10,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SearchCupStoreListDto {
-  private List<SearchCupStore> cupStores;
+  private List<SearchCupStoreDbResult> cupStores;
   Integer size;
-  public static SearchCupStoreListDto ofSearchCupStore(List<SearchCupStore> stores){
+  public static SearchCupStoreListDto ofSearchCupStore(List<SearchCupStoreDbResult> stores){
     return new SearchCupStoreListDto(stores, stores.size());
   }
 }

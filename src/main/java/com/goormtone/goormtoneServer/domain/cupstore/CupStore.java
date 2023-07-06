@@ -1,13 +1,14 @@
 package com.goormtone.goormtoneServer.domain.cupstore;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import com.goormtone.goormtoneServer.domain.comment.Comment;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.apache.catalina.LifecycleState;
 import org.locationtech.jts.geom.Point;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -23,4 +24,7 @@ public class CupStore {
   private String imageUrl;
   @ManyToOne
   private CupStoreGroup group;
+  private String hours;
+  @OneToMany(mappedBy = "cupStore")
+  private List<Comment> comments;
 }

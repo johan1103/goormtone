@@ -7,11 +7,14 @@ import lombok.NoArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class SearchCupStore {
+public class SearchCupStoreDbResult {
   private String name;
   private Double starRating;
   private String imageUrl;
   private Long cupStoreId;
   private Double lat;
   private Double lng;
+  private String hours;
+  private String groupName;
+  private Long groupId;
 }
