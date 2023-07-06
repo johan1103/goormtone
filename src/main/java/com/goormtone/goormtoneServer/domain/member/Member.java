@@ -13,10 +13,14 @@ import lombok.NoArgsConstructor;
 public class Member {
   @Id
   private String id;
-
   private Integer point;
 
   private Integer accumulatePoint;
 
   private String nickname;
+
+  public void plusPoint(int engagePoint){
+    point+=engagePoint;
+    accumulatePoint+=engagePoint;
+  }
 }

@@ -1,5 +1,6 @@
-package com.goormtone.goormtoneServer.controller;
+package com.goormtone.goormtoneServer.controller.oauth;
 
+import com.goormtone.goormtoneServer.controller.oauth.OAuthController;
 import com.goormtone.goormtoneServer.domain.member.LoginRequestDto;
 import com.goormtone.goormtoneServer.domain.member.Member;
 import com.goormtone.goormtoneServer.domain.member.MemberDto;
@@ -14,7 +15,7 @@ import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
-public class OAuthControllerV1 implements OAuthController{
+public class OAuthControllerV1 implements OAuthController {
   private final MemberService memberService;
   private final MemberRepository memberRepository;
   private final TokenResolver resolver;

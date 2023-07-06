@@ -1,6 +1,6 @@
 package com.goormtone.goormtoneServer.domain.test.entity;
 
-import com.goormtone.goormtoneServer.domain.dto.TestDtoRequest;
+import com.goormtone.goormtoneServer.domain.test.dto.TestDtoRequest;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;

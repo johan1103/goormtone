@@ -1,4 +1,4 @@
-package com.goormtone.goormtoneServer.controller;
+package com.goormtone.goormtoneServer.controller.oauth;
 import com.goormtone.goormtoneServer.domain.member.LoginRequestDto;
 import com.goormtone.goormtoneServer.domain.member.Member;
 import com.goormtone.goormtoneServer.domain.member.MemberDto;
