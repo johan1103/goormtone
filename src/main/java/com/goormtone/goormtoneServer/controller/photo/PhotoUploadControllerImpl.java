@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class PhotoUploadControllerImpl implements PhotoUploadController{
   private final PhotoUploadService photoUploadService;
   private final TokenResolver resolver;
-  private final CupStoreRepository cupStoreRepository;
   @Override
   public MemberPointAccumulateDto upload(PhotoUploadDto uploadDto, HttpServletRequest request) {
     PhotoDto photoDto = PhotoDto.ofPhotoUploadDto(uploadDto,
