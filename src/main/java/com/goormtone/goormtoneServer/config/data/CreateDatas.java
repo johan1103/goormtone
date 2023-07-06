@@ -3,9 +3,11 @@ package com.goormtone.goormtoneServer.config.data;
 import com.goormtone.goormtoneServer.domain.cupstore.CupStore;
 import com.goormtone.goormtoneServer.domain.cupstore.CupStoreGroup;
 import com.goormtone.goormtoneServer.domain.member.Member;
+import com.goormtone.goormtoneServer.domain.nonProfit.NonProfitOrganization;
 import com.goormtone.goormtoneServer.repository.CupStoreGroupRepository;
 import com.goormtone.goormtoneServer.repository.CupStoreRepository;
 import com.goormtone.goormtoneServer.repository.MemberRepository;
+import com.goormtone.goormtoneServer.repository.NonProfitOrganizationRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +21,7 @@ public class CreateDatas {
   private final MemberRepository memberRepository;
   private final CupStoreRepository cupStoreRepository;
   private final CupStoreGroupRepository cupStoreGroupRepository;
+  private final NonProfitOrganizationRepository organizationRepository;
   @GetMapping("/create-data")
   @Transactional
   public String create(){
@@ -31,6 +34,7 @@ public class CreateDatas {
             ,imageUrl,group1,"11~17",null,"제주 서귀포시"));
     cupStoreRepository.save(new CupStore(null,33.4491298,126.912709,"CupStore3"
             ,imageUrl,group1,"09~20",null,"제주 제주시"));
+    organizationRepository.save(new NonProfitOrganization(null,"제주도",0,1000000));
     return "ok";
   }
 }

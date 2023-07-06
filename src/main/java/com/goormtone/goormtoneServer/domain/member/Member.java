@@ -23,4 +23,8 @@ public class Member {
     point+=engagePoint;
     accumulatePoint+=engagePoint;
   }
+
+  public void donation(int donationPoint){
+    point-=donationPoint;
+  }
 }
