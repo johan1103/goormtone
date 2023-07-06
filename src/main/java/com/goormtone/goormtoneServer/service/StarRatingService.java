@@ -40,7 +40,7 @@ public class StarRatingService {
     for(StarRating starRating : starRatings){
       averageRating+=starRating.getRating();
     }
-    averageRating/=starRatings.size();
+    averageRating/=(starRatings.size()==0?1:starRatings.size());
     return averageRating;
   }
 }
