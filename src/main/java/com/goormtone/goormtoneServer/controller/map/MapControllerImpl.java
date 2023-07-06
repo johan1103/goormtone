@@ -13,8 +13,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MapControllerImpl implements MapController{
   private final CupStoreService cupStoreService;
+
   @Override
-  public SearchCupStoreListDto searchCupStore(SearchCupStoreRequestDto requestDto) {
-    return cupStoreService.search(requestDto);
+  public SearchCupStoreListDto searchCupStore(Double latitude, Double longitude, Double boundary) {
+    return cupStoreService.search(new SearchCupStoreRequestDto(latitude,longitude,boundary));
   }
 }
