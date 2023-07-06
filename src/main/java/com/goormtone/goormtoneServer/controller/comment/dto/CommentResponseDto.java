@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 public class CommentResponseDto {
   public String cupStoreName;
   public String content;
-  public LocalDateTime createTime;
+  public LocalDateTime createdAt;
   public String commentNickname;
   public static CommentResponseDto ofComment(Comment comment){
     return new CommentResponseDto(comment.getCupStore().getName(),comment.getContent(),
