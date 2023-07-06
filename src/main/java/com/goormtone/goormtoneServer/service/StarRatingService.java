@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -31,5 +32,15 @@ public class StarRatingService {
             -> starRatingRepository.save(new StarRating(null, null, cupStore.get(), member.get())));
     starRating.setRating(starRatingDto.getRating());
     return StarRatingResponseDto.ofStarRatingDtoAndMember(starRatingDto,member.get());
+  }
+
+  public Double getAverageRating(Long cupStoreId){
+    List<StarRating> starRatings = starRatingRepository.findStarRatingsByCupStoreId(cupStoreId);
+    Double averageRating = 0D;
+    for(StarRating starRating : starRatings){
+      averageRating+=starRating.getRating();
+    }
+    averageRating/=starRatings.size();
+    return averageRating;
   }
 }

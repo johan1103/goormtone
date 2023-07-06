@@ -11,6 +11,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -25,6 +26,6 @@ public class Comment {
   public Member member;
   @ManyToOne
   public CupStore cupStore;
-  public LocalDate createTime;
+  public LocalDateTime createTime;
   public String commentNickname;
 }

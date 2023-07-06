@@ -27,4 +27,5 @@ public class CupStore {
   private String hours;
   @OneToMany(mappedBy = "cupStore")
   private List<Comment> comments;
+  private String roadAddressName;
 }
