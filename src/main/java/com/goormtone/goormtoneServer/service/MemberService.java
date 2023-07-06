@@ -18,6 +18,7 @@ public class MemberService{
 
   private final List<String> randomNickname;
   private static final String secretValue = "goorm";
+  private static final int nicknameListLen = 5;
 
   @PostConstruct
   public void initRandomValue(){
@@ -47,6 +48,6 @@ public class MemberService{
     return new Member(id,0,0,createRandomNickname());
   }
   private String createRandomNickname(){
-    return randomNickname.get((int)Math.random()*100%randomNickname.size());
+    return randomNickname.get(((int)(Math.random()*100)%nicknameListLen));
   }
 }
