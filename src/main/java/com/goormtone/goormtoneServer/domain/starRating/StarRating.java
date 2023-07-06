@@ -23,4 +23,8 @@ public class StarRating {
   private CupStore cupStore;
   @ManyToOne
   private Member member;
+
+  public void setRating(Integer rating) {
+    this.rating = rating;
+  }
 }
