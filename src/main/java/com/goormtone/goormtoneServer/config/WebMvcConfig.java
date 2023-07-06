@@ -12,7 +12,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
   @Override
   public void addInterceptors(InterceptorRegistry registry) {
     registry.addInterceptor(new TokenAuthorizationInterceptor())
-            .excludePathPatterns("/css/**", "/images/**", "/js/**","/oauth-redirect",
+            .excludePathPatterns("/css/**", "/images/**", "/js/**","/oauth-redirect/**",
                     "/swagger-ui/**","/swagger-resources/**","/v3/api-docs/**","/test/**","/map/**","/detail/**"
             ,"/organization/**");
   }
@@ -21,7 +21,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
     registry.addMapping("/**")
             .allowedOriginPatterns("*")
             .allowedMethods("GET", "POST", "PUT", "PATCH", "OPTIONS")
-            .allowedHeaders("headers")
             .allowedOrigins("https://nwadwong-in-jeju.vercel.app")
             .exposedHeaders("authorization");
   }
