@@ -13,6 +13,8 @@ public class TokenAuthorizationInterceptor implements HandlerInterceptor {
   private static final String secretValue = "goorm";
   @Override
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    if(request.getMethod().equals("OPTIONS"))
+      return HandlerInterceptor.super.preHandle(request, response, handler);
     String token = request.getHeader("authorization");
     System.out.println(request.getHeader("authorization"));
     if(validateToken(token))
