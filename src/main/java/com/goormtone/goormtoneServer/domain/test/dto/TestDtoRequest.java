@@ -1,4 +1,4 @@
-package com.goormtone.goormtoneServer.domain.dto;
+package com.goormtone.goormtoneServer.domain.test.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

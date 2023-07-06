@@ -1,6 +1,7 @@
-package com.goormtone.goormtoneServer.domain.member;
+package com.goormtone.goormtoneServer.domain.nonProfit;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,12 +11,11 @@ import lombok.NoArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Member {
+public class NonProfitOrganization {
   @Id
-  private String id;
+  @GeneratedValue
+  public Long id;
+  private String name;
   private Integer point;
-
-  private Integer accumulatePoint;
-
-  private String nickname;
+  private Integer maxPoint;
 }
