@@ -25,12 +25,12 @@ public class CreateDatas {
     memberRepository.save(new Member("1234",0,0,"kimTaehyoung"));
     CupStoreGroup group1 = cupStoreGroupRepository.save(new CupStoreGroup(null,"original",10));
     String imageUrl = "https://d12zq4w4guyljn.cloudfront.net/300_300_20221114025716561_photo_79460f6e0b30.jpg";
-    cupStoreRepository.save(new CupStore(null,33.4471298,126.913509,"CupStore1"
-            ,imageUrl,group1));
-    cupStoreRepository.save(new CupStore(null,33.4471298,126.913609,"CupStore2"
-            ,imageUrl,group1));
-    cupStoreRepository.save(new CupStore(null,33.4471298,126.913709,"CupStore3"
-            ,imageUrl,group1));
+    CupStore cupStore = cupStoreRepository.save(new CupStore(null,33.4471298,126.913509,"CupStore1"
+            ,imageUrl,group1,"11111",null));
+    cupStoreRepository.save(new CupStore(null,33.4461298,126.914609,"CupStore2"
+            ,imageUrl,group1,"1111",null));
+    cupStoreRepository.save(new CupStore(null,33.4491298,126.912709,"CupStore3"
+            ,imageUrl,group1,"11111",null));
     return "ok";
   }
 }

@@ -10,7 +10,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CupStoreRepository extends JpaRepository<CupStore,Long> {
-  @Query(value = "select name,image_url,id,latitude,longitude from cup_store c " +
+  @Query(value = "select c.name,image_url,c.id,latitude,longitude,hours,cg.name,cg.id from cup_store c " +
+          "join cup_store_group cg on c.group_id=cg.id " +
           "where st_distance_sphere (POINT(c.longitude,c.latitude), POINT(:lng,:lat))<:boundary", nativeQuery = true)
   public Slice<Object[]> searchCupStoresInMap(@Param(value = "lng")Double lng,
                                               @Param(value = "lat")Double lat,
