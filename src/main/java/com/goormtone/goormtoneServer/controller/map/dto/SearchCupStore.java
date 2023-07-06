@@ -12,7 +12,6 @@ public class SearchCupStore {
   private Double starRating;
   private String imageUrl;
   private Long cupStoreId;
-  private Double lng;
   private Double lat;
-
+  private Double lng;
 }

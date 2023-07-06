@@ -17,7 +17,8 @@ public class CupStore {
   @Id
   @GeneratedValue
   private Long id;
-  private Point location;
+  private Double latitude;
+  private Double longitude;
   private String name;
   private String imageUrl;
   @ManyToOne
