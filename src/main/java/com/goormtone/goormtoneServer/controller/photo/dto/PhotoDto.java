@@ -10,7 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 @NoArgsConstructor
 public class PhotoDto {
   private String memberId;
-  private MultipartFile file;
+  private String file;
   private Long cupStoreId;
 
   public static PhotoDto ofPhotoUploadDto(PhotoUploadDto photoUploadDto,String memberId){
