@@ -18,4 +18,8 @@ public class NonProfitOrganization {
   private String name;
   private Integer point;
   private Integer maxPoint;
+
+  public void gainPoint(int gainPoint){
+    point+=gainPoint;
+  }
 }
