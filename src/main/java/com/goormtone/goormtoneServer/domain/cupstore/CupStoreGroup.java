@@ -17,5 +17,5 @@ public class CupStoreGroup {
   private Long id;
 
   private String name;
-  private Integer engagePoint;
+  private Integer gagePoint;
 }

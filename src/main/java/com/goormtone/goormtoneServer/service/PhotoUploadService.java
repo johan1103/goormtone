@@ -42,7 +42,7 @@ public class PhotoUploadService {
   private Member updateMemberPoint(PhotoDto photoDto){
     CupStore cupStore = cupStoreRepository.findById(photoDto.getCupStoreId()).get();
     Member member = memberRepository.findById(photoDto.getMemberId()).get();
-    member.plusPoint(cupStore.getGroup().getEngagePoint());
+    member.plusPoint(cupStore.getGroup().getGagePoint());
     return member;
   }
 }

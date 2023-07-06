@@ -14,8 +14,9 @@ public class MemberPointAccumulateDto {
   private String memberNickname;
   private Integer memberAccumulatedPoint;
   private Integer memberPoint;
+  private Integer gainPoint;
   public static MemberPointAccumulateDto ofMemberAndCupStore(Member member, CupStore cupStore){
     return new MemberPointAccumulateDto(cupStore.getName(),
-            member.getNickname(),member.getAccumulatePoint(),member.getPoint());
+            member.getNickname(),member.getAccumulatePoint(),member.getPoint(),cupStore.getGroup().getGagePoint());
   }
 }
