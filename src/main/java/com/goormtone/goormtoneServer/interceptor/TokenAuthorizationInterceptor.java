@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import org.springframework.web.cors.CorsUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 @Component
@@ -12,6 +13,9 @@ public class TokenAuthorizationInterceptor implements HandlerInterceptor {
   private static final String secretValue = "goorm";
   @Override
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    if (CorsUtils.isPreFlightRequest(request)) {
+      return HandlerInterceptor.super.preHandle(request, response, handler);
+    }
     String token = request.getHeader("authorization");
     System.out.println(request.getHeader("authorization"));
     if(validateToken(token))
