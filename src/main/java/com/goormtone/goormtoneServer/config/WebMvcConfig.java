@@ -13,7 +13,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
   public void addInterceptors(InterceptorRegistry registry) {
     registry.addInterceptor(new TokenAuthorizationInterceptor())
             .excludePathPatterns("/css/**", "/images/**", "/js/**","/oauth-redirect",
-                    "/swagger-ui/**","/swagger-resources/**","/v3/api-docs/**","/test/**");
+                    "/swagger-ui/**","/swagger-resources/**","/v3/api-docs/**","/test/**","/map/**");
   }
   @Override
   public void addCorsMappings(CorsRegistry registry) {
