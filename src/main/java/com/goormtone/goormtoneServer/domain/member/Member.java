@@ -18,4 +18,9 @@ public class Member {
   private Integer accumulatePoint;
 
   private String nickname;
+
+  public void plusPoint(int engagePoint){
+    point+=engagePoint;
+    accumulatePoint+=engagePoint;
+  }
 }
