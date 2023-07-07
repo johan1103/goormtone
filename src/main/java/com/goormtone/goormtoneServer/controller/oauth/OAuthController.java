@@ -1,4 +1,5 @@
 package com.goormtone.goormtoneServer.controller.oauth;
+import com.goormtone.goormtoneServer.controller.oauth.dto.MemberRenameDto;
 import com.goormtone.goormtoneServer.domain.member.LoginRequestDto;
 import com.goormtone.goormtoneServer.domain.member.Member;
 import com.goormtone.goormtoneServer.domain.member.MemberDto;
@@ -13,5 +14,5 @@ public interface OAuthController {
   @PostMapping("/oauth-redirect")
   public MemberDto oauthLogin(@RequestBody LoginRequestDto loginRequestDto);
   @GetMapping("/oauth-test")
-  public Member oauth(HttpServletRequest request);
+  public MemberRenameDto oauth(HttpServletRequest request);
 }

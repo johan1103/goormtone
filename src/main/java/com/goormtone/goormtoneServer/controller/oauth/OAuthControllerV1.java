@@ -1,6 +1,6 @@
 package com.goormtone.goormtoneServer.controller.oauth;
 
-import com.goormtone.goormtoneServer.controller.oauth.OAuthController;
+import com.goormtone.goormtoneServer.controller.oauth.dto.MemberRenameDto;
 import com.goormtone.goormtoneServer.domain.member.LoginRequestDto;
 import com.goormtone.goormtoneServer.domain.member.Member;
 import com.goormtone.goormtoneServer.domain.member.MemberDto;
@@ -26,11 +26,11 @@ public class OAuthControllerV1 implements OAuthController {
   }
 
   @Override
-  public Member oauth(HttpServletRequest request) {
+  public MemberRenameDto oauth(HttpServletRequest request) {
     String token = resolveToken(request);
     String id = resolver.resolveMemberIdFromToken(token);
     Optional<Member> member = memberRepository.findById(id);
-    return member.get();
+    return MemberRenameDto.ofMember(member.get());
   }
 
   private String resolveToken(HttpServletRequest request){
