@@ -12,8 +12,14 @@ import lombok.NoArgsConstructor;
 public class StarRatingResponseDto {
   private String memberName;
   private int rating;
+  private Double averageRating;
+  private Integer totalRatingPeople;
 
-  public static StarRatingResponseDto ofStarRatingDtoAndMember(StarRatingDto starRatingDto, Member member){
-    return new StarRatingResponseDto(member.getNickname(),starRatingDto.getRating());
+  public static StarRatingResponseDto ofStarRatingDtoAndMember(StarRatingDto starRatingDto, RatingInfoDto ratingInfoDto ,Member member){
+    return new StarRatingResponseDto(member.getNickname(),
+            starRatingDto.getRating(),
+            ratingInfoDto.getAverageRating(),
+            ratingInfoDto.getTotalRatingPeople()
+            );
   }
 }

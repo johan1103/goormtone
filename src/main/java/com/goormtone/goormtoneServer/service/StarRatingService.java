@@ -1,6 +1,7 @@
 package com.goormtone.goormtoneServer.service;
 
 import com.goormtone.goormtoneServer.controller.detail.dto.CupStoreDetailResponseDto;
+import com.goormtone.goormtoneServer.controller.star.dto.RatingInfoDto;
 import com.goormtone.goormtoneServer.controller.star.dto.StarRatingDto;
 import com.goormtone.goormtoneServer.controller.star.dto.StarRatingResponseDto;
 import com.goormtone.goormtoneServer.domain.cupstore.CupStore;
@@ -33,7 +34,17 @@ public class StarRatingService {
     StarRating starRating = findStarRating.orElseGet(()
             -> starRatingRepository.save(new StarRating(null, null, cupStore.get(), member.get())));
     starRating.setRating(starRatingDto.getRating());
-    return StarRatingResponseDto.ofStarRatingDtoAndMember(starRatingDto,member.get());
+
+    RatingInfoDto ratingInfoDto = new RatingInfoDto();
+    setRatingInfoToDto(ratingInfoDto,starRatingDto.getCupStoreId());
+
+    return StarRatingResponseDto.ofStarRatingDtoAndMember(starRatingDto,ratingInfoDto,member.get());
+  }
+
+  private void setRatingInfoToDto(RatingInfoDto ratingInfoDto,Long cupStoreId){
+    List<StarRating> starRatings = getStarRating(cupStoreId);
+    ratingInfoDto.setAverageRating(getRatingAverage(starRatings));
+    ratingInfoDto.setTotalRatingPeople(starRatings.size());
   }
 
   public void setRatingInfoToDto(CupStoreDetailResponseDto responseDto,Long cupStoreId){
@@ -52,4 +63,6 @@ public class StarRatingService {
   private List<StarRating> getStarRating(Long cupStoreId){
     return starRatingRepository.findStarRatingsByCupStoreId(cupStoreId);
   }
+
+  private RatingInfoDto
 }
