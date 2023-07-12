@@ -1,5 +1,6 @@
 package com.goormtone.goormtoneServer.service;
 
+import com.goormtone.goormtoneServer.controller.detail.dto.CupStoreDetailResponseDto;
 import com.goormtone.goormtoneServer.controller.star.dto.StarRatingDto;
 import com.goormtone.goormtoneServer.controller.star.dto.StarRatingResponseDto;
 import com.goormtone.goormtoneServer.domain.cupstore.CupStore;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -34,13 +36,20 @@ public class StarRatingService {
     return StarRatingResponseDto.ofStarRatingDtoAndMember(starRatingDto,member.get());
   }
 
-  public Double getAverageRating(Long cupStoreId){
-    List<StarRating> starRatings = starRatingRepository.findStarRatingsByCupStoreId(cupStoreId);
+  public void setRatingInfoToDto(CupStoreDetailResponseDto responseDto,Long cupStoreId){
+    List<StarRating> starRatings = getStarRating(cupStoreId);
+    responseDto.setAverageRating(getRatingAverage(starRatings));
+    responseDto.setTotalRatingPeople(starRatings.size());
+  }
+  private Double getRatingAverage(List<StarRating> starRatings){
     Double averageRating = 0D;
     for(StarRating starRating : starRatings){
       averageRating+=starRating.getRating();
     }
     averageRating/=(starRatings.size()==0?1:starRatings.size());
     return averageRating;
+  }
+  private List<StarRating> getStarRating(Long cupStoreId){
+    return starRatingRepository.findStarRatingsByCupStoreId(cupStoreId);
   }
 }

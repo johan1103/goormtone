@@ -27,10 +27,8 @@ public class CupStoreService {
     CupStore cupStore = cupStoreRepository.findById(cupStoreId).get();
     CupStoreDetailResponseDto cupStoreDetailResponseDto = buildWithoutCommentsAndRating(cupStore);
 
-    cupStoreDetailResponseDto.setAverageRating(starRatingService.getAverageRating(cupStoreId));
-    List<DetailPageCommentDto> commentDtos = commentService.getDetailPageComments(cupStoreId);
-    cupStoreDetailResponseDto.setComments(commentDtos);
-    cupStoreDetailResponseDto.setTotalComments(commentDtos.size());
+    starRatingService.setRatingInfoToDto(cupStoreDetailResponseDto,cupStoreId);
+    commentService.setCommentsInfoToDto(cupStoreDetailResponseDto,cupStoreId);
     return cupStoreDetailResponseDto;
   }
   private CupStoreDetailResponseDto buildWithoutCommentsAndRating(CupStore cupStore){

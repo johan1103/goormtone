@@ -31,4 +31,7 @@ public class CupStoreDetailResponseDto {
   public void setComments(List<DetailPageCommentDto> comments) {
     this.comments = comments;
   }
+  public void setTotalRatingPeople(Integer totalRatingPeople){
+    this.totalRatingPeople = totalRatingPeople;
+  }
 }
