@@ -15,8 +15,9 @@ public class DetailPageCommentDto {
   String commentNickname;
   LocalDateTime createdAt;
   String content;
+  Long commentId;
 
   public static DetailPageCommentDto ofComment(Comment comment){
-    return new DetailPageCommentDto(comment.getCommentNickname(),comment.getCreateTime(),comment.getContent());
+    return new DetailPageCommentDto(comment.getCommentNickname(),comment.getCreateTime(),comment.getContent(),comment.getId());
   }
 }

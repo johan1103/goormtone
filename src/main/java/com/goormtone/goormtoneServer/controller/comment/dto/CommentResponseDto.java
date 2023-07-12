@@ -19,8 +19,9 @@ public class CommentResponseDto {
   public String content;
   public LocalDateTime createdAt;
   public String commentNickname;
+  public Long commentId;
   public static CommentResponseDto ofComment(Comment comment){
     return new CommentResponseDto(comment.getCupStore().getName(),comment.getContent(),
-            comment.getCreateTime(),comment.getCommentNickname());
+            comment.getCreateTime(),comment.getCommentNickname(),comment.getId());
   }
 }

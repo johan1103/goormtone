@@ -3,6 +3,7 @@ package com.goormtone.goormtoneServer.service;
 import com.goormtone.goormtoneServer.controller.comment.dto.CommentDto;
 import com.goormtone.goormtoneServer.controller.comment.dto.CommentRequestDto;
 import com.goormtone.goormtoneServer.controller.comment.dto.CommentResponseDto;
+import com.goormtone.goormtoneServer.controller.detail.dto.CupStoreDetailResponseDto;
 import com.goormtone.goormtoneServer.controller.detail.dto.DetailPageCommentDto;
 import com.goormtone.goormtoneServer.domain.comment.Comment;
 import com.goormtone.goormtoneServer.domain.cupstore.CupStore;
@@ -38,9 +39,14 @@ public class CommentService {
     return CommentResponseDto.ofComment(comment);
   }
 
-  public List<DetailPageCommentDto> getDetailPageComments(Long cupStoreId){
+  public void setCommentsInfoToDto(CupStoreDetailResponseDto dto, Long cupStoreId){
     List<Comment> comments = commentRepository
             .getCommentsByCupStoreId(cupStoreId, PageRequest.of(0, 10)).getContent().stream().toList();
+    List<DetailPageCommentDto> detailPageComments = commentToDetailPageCommentDto(comments);
+    dto.setComments(detailPageComments);
+    dto.setTotalComments(detailPageComments.size());
+  }
+  private List<DetailPageCommentDto> commentToDetailPageCommentDto(List<Comment> comments){
     List<DetailPageCommentDto> detailPageComments = new ArrayList<>();
     for(Comment comment : comments){
       detailPageComments.add(DetailPageCommentDto.ofComment(comment));

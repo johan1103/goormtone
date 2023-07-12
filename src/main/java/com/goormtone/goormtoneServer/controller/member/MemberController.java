@@ -14,10 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class MemberController {
   private final MemberRepository memberRepository;
-  private final TokenResolver tokenResolver;
   @GetMapping
   public Member findMember(HttpServletRequest request){
-    return memberRepository.findById(tokenResolver.resolveMemberIdFromToken(request.getHeader("authorization")))
+    return memberRepository.findById(TokenResolver.resolveMemberIdFromToken(request.getHeader("authorization")))
             .get();
   }
 }
