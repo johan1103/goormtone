@@ -63,6 +63,4 @@ public class StarRatingService {
   private List<StarRating> getStarRating(Long cupStoreId){
     return starRatingRepository.findStarRatingsByCupStoreId(cupStoreId);
   }
-
-  private RatingInfoDto
 }
