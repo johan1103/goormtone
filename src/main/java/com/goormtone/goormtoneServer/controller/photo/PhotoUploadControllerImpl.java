@@ -20,7 +20,7 @@ public class PhotoUploadControllerImpl implements PhotoUploadController{
   @Override
   public MemberPointAccumulateDto upload(PhotoUploadDto uploadDto, HttpServletRequest request) {
     PhotoDto photoDto = PhotoDto.ofPhotoUploadDto(uploadDto,
-            resolver.resolveMemberIdFromToken(request.getHeader("authorization")));
+            TokenResolver.resolveMemberIdFromToken(request.getHeader("authorization")));
     return photoUploadService.upload(photoDto);
   }
 }

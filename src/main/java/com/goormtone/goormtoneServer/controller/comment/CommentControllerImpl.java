@@ -13,11 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class CommentControllerImpl implements CommentController{
   private final CommentService commentService;
-  private final TokenResolver tokenResolver;
   @Override
   public CommentResponseDto comment(CommentRequestDto requestDto, HttpServletRequest request) {
     CommentDto commentDto = CommentDto.ofCommentRequestAndMemberId(requestDto,
-            tokenResolver.resolveMemberIdFromToken(request.getHeader("authorization")));
+            TokenResolver.resolveMemberIdFromToken(request.getHeader("authorization")));
     return commentService.comment(commentDto);
   }
 }

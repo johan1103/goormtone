@@ -12,12 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 public class StarRatingControllerImpl implements StarRatingController{
-  private final TokenResolver resolver;
   private final StarRatingService starRatingService;
   @Override
   public StarRatingResponseDto rating(StarRatingRequestDto requestDto, HttpServletRequest request) {
     StarRatingDto ratingDto = StarRatingDto.ofStarRatingRequestAndMemberId(requestDto
-            ,resolver.resolveMemberIdFromToken(request.getHeader("authorization")));
+            , TokenResolver.resolveMemberIdFromToken(request.getHeader("authorization")));
     return starRatingService.rating(ratingDto);
   }
 }

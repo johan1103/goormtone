@@ -15,11 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 public class DonationControllerRequestImpl implements DonationController{
-  private final TokenResolver resolver;
   private final DonationService donationService;
   @Override
   public DonationResponseDto donate(DonationRequestDto requestDto, HttpServletRequest request) {
-    String memberId = resolver.resolveMemberIdFromToken(request.getHeader("authorization"));
+    String memberId = TokenResolver.resolveMemberIdFromToken(request.getHeader("authorization"));
     return donationService.donate(DonationDto.ofDonationRequestDtoAndMemberId(requestDto, memberId));
   }
 }

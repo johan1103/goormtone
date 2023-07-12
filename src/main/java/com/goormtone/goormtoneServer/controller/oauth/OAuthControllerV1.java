@@ -18,7 +18,6 @@ import java.util.Optional;
 public class OAuthControllerV1 implements OAuthController {
   private final MemberService memberService;
   private final MemberRepository memberRepository;
-  private final TokenResolver resolver;
 
   @Override
   public MemberDto oauthLogin(@RequestBody LoginRequestDto loginRequestDto) {
@@ -28,7 +27,7 @@ public class OAuthControllerV1 implements OAuthController {
   @Override
   public MemberRenameDto oauth(HttpServletRequest request) {
     String token = resolveToken(request);
-    String id = resolver.resolveMemberIdFromToken(token);
+    String id = TokenResolver.resolveMemberIdFromToken(token);
     Optional<Member> member = memberRepository.findById(id);
     return MemberRenameDto.ofMember(member.get());
   }

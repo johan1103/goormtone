@@ -6,12 +6,12 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class TokenResolver {
-  public String resolveMemberIdFromToken(String token){
+  public static String resolveMemberIdFromToken(String token){
     int idx=findAndIdx(token);
     return token.substring(idx);
   }
 
-  private int findAndIdx(String token){
+  private static int findAndIdx(String token){
     for(int i=0;i<token.length();i++){
       if(token.charAt(i)=='&')
         return i+1;
