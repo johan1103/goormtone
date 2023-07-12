@@ -7,6 +7,7 @@ import com.goormtone.goormtoneServer.controller.map.dto.SearchCupStoreListDto;
 import com.goormtone.goormtoneServer.controller.map.dto.SearchCupStoreRequestDto;
 import com.goormtone.goormtoneServer.domain.cupstore.CupStore;
 import com.goormtone.goormtoneServer.repository.CupStoreRepository;
+import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Slice;
@@ -24,20 +25,20 @@ public class CupStoreService {
 
   public CupStoreDetailResponseDto getDetail(Long cupStoreId){
     CupStore cupStore = cupStoreRepository.findById(cupStoreId).get();
-    CupStoreDetailResponseDto cupStoreDetailResponseDto = new CupStoreDetailResponseDto(
-            cupStore.getImageUrl(),
-            cupStore.getName(),
-            cupStore.getRoadAddressName(),
-            cupStore.getHours(),
-            null,
-            null,
-            null
-    );
+    CupStoreDetailResponseDto cupStoreDetailResponseDto = buildWithoutCommentsAndRating(cupStore);
+
     cupStoreDetailResponseDto.setAverageRating(starRatingService.getAverageRating(cupStoreId));
     List<DetailPageCommentDto> commentDtos = commentService.getDetailPageComments(cupStoreId);
     cupStoreDetailResponseDto.setComments(commentDtos);
     cupStoreDetailResponseDto.setTotalComments(commentDtos.size());
     return cupStoreDetailResponseDto;
+  }
+  private CupStoreDetailResponseDto buildWithoutCommentsAndRating(CupStore cupStore){
+    return CupStoreDetailResponseDto.builder().
+            imageUrl(cupStore.getImageUrl()).
+            name(cupStore.getName()).
+            roadAddress(cupStore.getRoadAddressName()).
+            hours(cupStore.getHours()).build();
   }
   public SearchCupStoreListDto search(SearchCupStoreRequestDto requestDto){
     Slice<Object[]> storeObjectList = cupStoreRepository.searchCupStoresInMap(requestDto.getLng(),
