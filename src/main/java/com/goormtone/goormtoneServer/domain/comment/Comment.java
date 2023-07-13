@@ -28,4 +28,8 @@ public class Comment {
   public CupStore cupStore;
   public LocalDateTime createTime;
   public String commentNickname;
+
+  public void updateComment(String content){
+    this.content=content;
+  }
 }
