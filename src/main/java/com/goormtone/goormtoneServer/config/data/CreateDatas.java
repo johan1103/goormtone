@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/test")
@@ -27,7 +29,10 @@ public class CreateDatas {
   @Transactional
   public String create(){
     insertCup();
-    organizationRepository.save(new NonProfitOrganization(null,"제주도",0,1000000));
+    organizationRepository.save(new NonProfitOrganization(null,"제주도",0,1000000,
+            "organization 설명",
+            LocalDate.of(2023,7,1),
+            LocalDate.of(2023,7,30)));
     return "ok";
   }
   private void insertCup(){
