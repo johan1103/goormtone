@@ -29,11 +29,22 @@ public class CreateDatas {
   @Transactional
   public String create(){
     insertCup();
-    organizationRepository.save(new NonProfitOrganization(null,"제주도",0,1000000,
+    insertOrganization();
+    return "ok";
+  }
+  private void insertOrganization(){
+    organizationRepository.save(new NonProfitOrganization(null,"제주 관광공사","트래쉬 목마 캠페인",0,1000000,
+            "organization 설명",
+            LocalDate.of(2023,6,1),
+            LocalDate.of(2023,7,30)));
+    organizationRepository.save(new NonProfitOrganization(null,"스타벅스","청정 제주",0,1000000,
+            "organization 설명",
+            LocalDate.of(2023,6,15),
+            LocalDate.of(2023,7,30)));
+    organizationRepository.save(new NonProfitOrganization(null,"제주 환경운동연합","다회용 회수 탄소 배출 감축",0,1000000,
             "organization 설명",
             LocalDate.of(2023,7,1),
-            LocalDate.of(2023,7,30)));
-    return "ok";
+            LocalDate.of(2023,8,30)));
   }
   private void insertCup(){
     CupStoreGroup group1 = cupStoreGroupRepository.save(new CupStoreGroup(null,"일회용",10));

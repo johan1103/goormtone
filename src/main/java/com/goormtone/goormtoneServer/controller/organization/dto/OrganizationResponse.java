@@ -13,6 +13,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrganizationResponse {
+  private Long organizationId;
   private String name;
   private String description;
   private LocalDate start;
@@ -21,6 +22,7 @@ public class OrganizationResponse {
   private Integer maxPoint;
   public static OrganizationResponse ofOrganization(NonProfitOrganization organization){
     return new OrganizationResponseBuilder()
+            .organizationId(organization.getId())
             .name(organization.getName())
             .description(organization.getDescription())
             .start(organization.getStartDate())

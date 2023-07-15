@@ -12,12 +12,13 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DetailPageCommentDto {
-  String commentNickname;
-  LocalDateTime createdAt;
-  String content;
-  Long commentId;
+  private String commentNickname;
+  private String memberId;
+  private LocalDateTime createdAt;
+  private String content;
+  private Long commentId;
 
   public static DetailPageCommentDto ofComment(Comment comment){
-    return new DetailPageCommentDto(comment.getCommentNickname(),comment.getCreateTime(),comment.getContent(),comment.getId());
+    return new DetailPageCommentDto(comment.getCommentNickname(),comment.getMember().getId(),comment.getCreateTime(),comment.getContent(),comment.getId());
   }
 }
