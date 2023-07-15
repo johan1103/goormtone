@@ -20,6 +20,7 @@ public class NonProfitOrganization {
   @GeneratedValue
   public Long id;
   private String name;
+  private String campaignName;
   private Integer point;
   private Integer maxPoint;
   private String description;
