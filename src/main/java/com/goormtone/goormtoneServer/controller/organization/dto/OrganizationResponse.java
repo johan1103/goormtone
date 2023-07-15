@@ -15,6 +15,7 @@ import java.time.LocalDate;
 public class OrganizationResponse {
   private Long organizationId;
   private String name;
+  private String campaignName;
   private String description;
   private LocalDate start;
   private LocalDate end;
@@ -29,6 +30,7 @@ public class OrganizationResponse {
             .end(organization.getEndDate())
             .point(organization.getPoint())
             .maxPoint(organization.getMaxPoint())
+            .campaignName(organization.getCampaignName())
             .build();
   }
 }
