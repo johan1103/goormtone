@@ -1,5 +1,6 @@
 package com.goormtone.goormtoneServer.controller.report.dto;
 
+import com.goormtone.goormtoneServer.domain.report.Report;
 import com.goormtone.goormtoneServer.domain.report.ReportType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,6 +24,14 @@ public class ReportDto {
                 .reportType(reportRequestDto.getReportType())
                 .memberId(memberId)
                 .reportDateTime(LocalDateTime.now())
+                .build();
+    }
+    public static ReportDto of(Report report){
+        return new ReportDtoBuilder()
+                .cupStoreId(report.getCupStore().getId())
+                .reportType(report.getReportType())
+                .memberId(report.getMember().getId())
+                .reportDateTime(report.getReportDateTime())
                 .build();
     }
 }

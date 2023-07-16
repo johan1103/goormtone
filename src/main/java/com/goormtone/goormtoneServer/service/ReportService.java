@@ -1,6 +1,7 @@
 package com.goormtone.goormtoneServer.service;
 
 import com.goormtone.goormtoneServer.controller.report.dto.ReportDto;
+import com.goormtone.goormtoneServer.controller.report.dto.ReportListResponseDto;
 import com.goormtone.goormtoneServer.controller.report.dto.ReportResponseDto;
 import com.goormtone.goormtoneServer.domain.cupstore.CupStore;
 import com.goormtone.goormtoneServer.domain.member.Member;
@@ -12,7 +13,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -27,5 +31,10 @@ public class ReportService {
         Report newReport = reportRepository.save(new Report(null,findMember.get(),findCupStore.get()
                 ,reportDto.getReportType(),reportDto.getReportDateTime()));
         return ReportResponseDto.ofReport(newReport);
+    }
+    public ReportListResponseDto getList(){
+        List<ReportDto> reportDtos = reportRepository.findAll()
+                .stream().map(ReportDto::of).collect(Collectors.toList());
+        return ReportListResponseDto.ofReportDto(reportDtos);
     }
 }
