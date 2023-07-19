@@ -18,12 +18,14 @@ public class ReportDto {
     private ReportType reportType;
     private String memberId;
     private LocalDateTime reportDateTime;
+    private String content;
     public static ReportDto of(ReportRequestDto reportRequestDto,String memberId){
         return new ReportDtoBuilder()
                 .cupStoreId(reportRequestDto.getCupStoreId())
                 .reportType(reportRequestDto.getReportType())
                 .memberId(memberId)
                 .reportDateTime(LocalDateTime.now())
+                .content(reportRequestDto.getContent())
                 .build();
     }
     public static ReportDto of(Report report){
@@ -32,6 +34,7 @@ public class ReportDto {
                 .reportType(report.getReportType())
                 .memberId(report.getMember().getId())
                 .reportDateTime(report.getReportDateTime())
+                .content(report.getContent())
                 .build();
     }
 }

@@ -2,6 +2,7 @@ package com.goormtone.goormtoneServer.domain.report;
 
 import com.goormtone.goormtoneServer.domain.cupstore.CupStore;
 import com.goormtone.goormtoneServer.domain.member.Member;
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,4 +25,5 @@ public class Report {
     @Enumerated(value = EnumType.STRING)
     private ReportType reportType;
     private LocalDateTime reportDateTime;
+    private String content;
 }

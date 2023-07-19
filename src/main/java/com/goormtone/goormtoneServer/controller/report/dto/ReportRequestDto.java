@@ -11,4 +11,5 @@ import lombok.NoArgsConstructor;
 public class ReportRequestDto {
     private Long cupStoreId;
     private ReportType reportType;
+    private String content;
 }
