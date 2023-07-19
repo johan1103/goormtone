@@ -13,7 +13,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -29,7 +28,7 @@ public class ReportService {
         Optional<Member> findMember = memberRepository.findById(reportDto.getMemberId());
         Optional<CupStore> findCupStore = cupStoreRepository.findById(reportDto.getCupStoreId());
         Report newReport = reportRepository.save(new Report(null,findMember.get(),findCupStore.get()
-                ,reportDto.getReportType(),reportDto.getReportDateTime()));
+                ,reportDto.getReportType(),reportDto.getReportDateTime(),reportDto.getContent()));
         return ReportResponseDto.ofReport(newReport);
     }
     public ReportListResponseDto getList(){
