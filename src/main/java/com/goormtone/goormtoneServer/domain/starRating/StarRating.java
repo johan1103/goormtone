@@ -2,10 +2,7 @@ package com.goormtone.goormtoneServer.domain.starRating;
 
 import com.goormtone.goormtoneServer.domain.cupstore.CupStore;
 import com.goormtone.goormtoneServer.domain.member.Member;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class StarRating {
   @Id
-  @GeneratedValue
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   private Integer rating;
   @ManyToOne

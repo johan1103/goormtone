@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 public class CupStore {
   @Id
-  @GeneratedValue
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   private Double latitude;
   private Double longitude;
